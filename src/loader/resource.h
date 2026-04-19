@@ -1,0 +1,1 @@
+#define IDR_CHEAT_DLL 101
