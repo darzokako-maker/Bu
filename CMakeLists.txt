@@ -1,12 +1,11 @@
-cmake_minimum_required(VERSION 3.10)
-project(ZenithAllInOne)
+cmake_minimum_required(VERSION 3.15)
+project(ZenithProject)
 
-# DLL Projesi (Hile)
-add_library(cheat_dll SHARED src/cheat/main.cpp src/cheat/gui.cpp)
+# 1. Hileyi (DLL) Derle
+add_library(cheat SHARED src/cheat/main.cpp src/cheat/gui.cpp)
 
-# EXE Projesi (Loader)
-add_executable(ZenithLoader src/loader/main.cpp)
+# 2. Loader'ı (EXE) Derle
+add_executable(loader src/loader/main.cpp src/loader/resources.rc)
 
-# DLL'i EXE'ye kaynak olarak ekle
-target_compile_definitions(ZenithLoader PRIVATE DLL_EMBEDDED)
-
+# 3. DLL bittikten sonra EXE'yi başlat
+add_dependencies(loader cheat)
