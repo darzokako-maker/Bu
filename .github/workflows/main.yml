@@ -1,0 +1,12 @@
+name: Build Zenith Loader
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+      - name: Build All
+        run: msbuild ZenithProject.sln /p:Configuration=Release
+
