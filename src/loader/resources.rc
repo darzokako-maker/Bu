@@ -1,0 +1,3 @@
+#include "resource.h"
+IDR_CHEAT_DLL RCDATA "bin/cheat.dll" 
+
